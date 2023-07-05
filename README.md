@@ -2,6 +2,7 @@
 
 > :construction: Projeto em construção :construction:
 
+- Utilizado HTML, CSS e Javascript
 - A trabalhar > Responsividade (CSS)
 
 <p align="center">
