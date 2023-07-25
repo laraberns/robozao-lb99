@@ -1,13 +1,6 @@
 # Robozao LB99
 
-> :construction: Projeto em construção :construction:
-
 - Utilizado HTML, CSS e Javascript
-- A trabalhar > Responsividade (CSS)
-
-<p align="center">
-<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
-</p>
 
 ## Autora do projeto:
 
