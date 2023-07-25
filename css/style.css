@@ -23,44 +23,59 @@ input {
 }
 
 main {
-    width: 90vw;
+    width: 95vw;
     height: 90vh;
-    margin: 5em;
+    margin: 5em 2em;
     display: flex;
     justify-content: center;
-    align-items: start;
-    gap: 10px;
+    align-items: center;
+    gap: 1em;
 }
 
 .robotron {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 30%;
 }
 
 .robo {
-    width: 600px;
+    width: 30vw;
 }
 
 .titulo {
     font-weight: 500;
-    font-size: 100px;
+    font-size: 5rem;
     color: rgba(0, 0, 0, 0.6)
 }
 
 .box {
     background: rgba(0, 0, 0, 0.6);
     clip-path: polygon(calc(100% - 30px) 0, 100% 30px, 100% calc(100% - 30px), calc(100% - 30px) 100%, 30px 100%, 0 calc(100% - 30px), 0 30px, 30px 0);
-    border-left: 5px solid var(--main-cinza);
-    height: 80vh;
-    width: 50vw;
-    padding: 2em;
+    border-left: 10px solid var(--main-cinza);
+    width: 30vw;
+    height: 70vh;
+    overflow-y: scroll;
 }
 
 /****************************** Equipamentos *****/
 
+.montador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1em;
+}
+
 .peca {
-    padding: 1em 0;
+    padding: 0.5em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
 }
 
 .peca-titulo {
@@ -71,12 +86,12 @@ main {
 
 .controle {
     background: var(--main-preto);
-    border-radius: 15px;
-    float: right;
+    border-radius: 10px;
     display: inline-flex;
     padding: 5px;
     align-items: center;
-    align-self: flex-end;
+    align-self: auto;
+    gap: 5px;
 }
 
 .controle-contador {
@@ -84,7 +99,6 @@ main {
     height: 35px;
     background: none;
     border: 0;
-    margin: 0 1rem;
     color: #449DD1;
     text-align: center;
     font-size: 2.5em;
@@ -100,7 +114,7 @@ main {
     line-height: 44px;
     border-radius: 50%;
     color: var(--main-cinza);
-    font-size: 4em;
+    font-size: 3em;
     background: var(--main-preto);
     text-align: center;
     border: 3px solid var(--main-cinza);
@@ -112,15 +126,16 @@ main {
 }
 
 .producao {
-    margin: 5px 15px 5px 15px;
+    margin: 10px 15px;
     font-size: 2em;
     text-transform: uppercase;
-    padding: 0.2em 1em;
-    float: right;
-    border: 2px solid var(--main-branco);
-    background-color: #449DD1;
+    padding: 0.2em 0.5em;
+    border: 2px solid var(--main-preto);
     clip-path: polygon(100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 0);
     cursor: pointer;
+    width: 20vw;
+    white-space: wrap;
+
 }
 
 .producao:hover {
@@ -131,17 +146,17 @@ main {
 
 
 /****************************** Estatísticas *****/
+
 .estatisticas {
-    padding: 1em;
-    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .estatistica {
     color: var(--main-branco);
     display: flex;
     align-items: center;
-    height: 25%;
-    width: 100%;
     justify-content: center;
     gap: 2em;
 }
@@ -149,7 +164,7 @@ main {
 .estatistica-titulo {
     color: var(--main-branco);
     text-transform: uppercase;
-    font-size: 3em;
+    font-size: 3rem;
 }
 
 .estatistica-valor {
@@ -160,7 +175,8 @@ main {
     border-radius: 50%;
     position: relative;
 }
-.estatistica-valor p{
+
+.estatistica-valor p {
     position: absolute;
     left: 22px;
     top: -33px;
@@ -171,187 +187,110 @@ main {
     color: var(--main-branco)
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1075px) {
     main {
-        width: 90vw;
+        width: 100vw;
         height: 100vh;
-        margin: 2em;
-        flex-direction:column;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
+        margin: 5em auto;
+        gap: 5px;
+        display: grid;
+        padding: 0 30px;
+        grid-template-areas:
+            "logo logo"
+            "nav content";
     }
 
-    .box {
-        height: 40vh;
-        width: 30vw;
-        padding: 2em;
-        flex-grow: 1;
+    .robotron {
+        grid-area: logo;
     }
-    
+
+    .estatisticas {
+        grid-area: nav;
+    }
+
+    .equipamentos {
+        grid-area: content;
+    }
+
+    .robotron {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
     .robo {
-        width: 400px;
+        width: 30vw;
     }
 
     .titulo {
-        font-size: 40px;
+        font-size: 4rem;
     }
 
-    .estatistica-valor {
+    .peca-titulo {
         font-size: 2em;
-        width: 50px;
-        height: 50px;
-        position: relative;
     }
 
-    .estatistica-valor p{
-        position: absolute;
-        left: 5px;
-        top: -33px;
-    }
-
-    .producao {
-        font-size: 1.5em;
+    .controle {
+        padding: 2px 4px;
+        gap: 1px;
     }
 
     .controle-contador {
-        width: 30px;
+        width: 40px;
         height: 25px;
         font-size: 2em;
+        padding-top: 5px;
     }
-
+    
     .controle-ajuste {
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 0;
         font-size: 2em;
         border: 2px solid var(--main-cinza);
     }
 
-    .peca-titulo {
-        font-size: 1.9em;
-    }
-
-    .equipamentos{
-        overflow: scroll;
-    }
-}
-
-@media (max-width: 1000px) {
-    main {
-        width: 95vw;
-        height: 100vh;
-        margin: 3em 1em;
-        flex-direction: row;
-        gap: 10px;
-    }
-
-    .box {
-        height: 55vh;
-        padding: 1em;
-        flex-grow: 1;
+    .estatistica-titulo {
+        font-size: 2rem;
+        margin: 10px 0;
     }
     
-    .robo {
-        width: 450px;
-    }
-
-    .titulo {
-        font-size: 30px;
-    }
-
     .estatistica-valor {
-        font-size: 3em;
-        border: none;
-        position: absolute
+        font-size: 2em;
+        border: 3px solid var(--main-branco);
+        width: 60px;
+        height: 50px;
+        border-radius: 0%;
     }
 
-    .estatistica-valor p{
-        position: static;
-        left: 0px;
-        top: 0px;
-    }
-
-    .estatistica-titulo {
-        font-size: 2.5em;
+    .estatistica-valor p {
+        left: 12px;
+        top: -32px;
     }
 
     .estatistica {
-        height: 100px;
-        width: auto;
-        justify-content: center;
+        flex-direction: column;
+        gap: 0em;
     }
 
     .estatisticas {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5em;
+        justify-content: start;
     }
 
-    .equipamentos{
-        overflow: scroll;
-    }
-    
+.producao {
+    font-size: 1.5em;
+    margin: 5px;
+    padding: 0;
+    clip-path: none;
+    width: 30vw;
+    white-space: wrap;
 }
 
-@media (max-width: 730px) {
-    .estatistica-titulo {
-        font-size: 2.3em;
-    }
-    .estatistica-valor {
-        font-size: 2.3em;
-    }
-
-    .robo {
-        width: 250px;
-    }
-
-    main {
-        margin: 3em 0.5em;
-        flex-direction: row;
-        gap: 5px;
-    }
+.box {
+    width: 40vw;
+    height: 60vh;
+}
 }
 
-
-    @media (max-width: 400px) {
-        .producao {
-            margin: 5px;
-            font-size: 1em;
-            float: none;
-            border: 1px solid var(--main-branco);
-            padding: 0.7em 0.5em;
-        }
-
-        .controle-contador {
-            width: 20px;
-            height: 15px;
-            font-size: 1em;
-            margin: 0 10px;
-        }
-    
-        .controle-ajuste {
-            width: 20px;
-            height: 20px;
-            line-height: 20px;
-            font-size: 1.5em;
-            border: 1px solid var(--main-cinza);
-        }
-    
-        .peca-titulo {
-            font-size: 1.5em;
-        }
-
-        .peca{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .controle {
-            float: none;
-            padding: 5px;
-            align-self: center;
-        }
-    
-    }
+@media (min-width: 440px) {}
