@@ -118,7 +118,7 @@ main {
     padding: 0.2em 1em;
     float: right;
     border: 2px solid var(--main-branco);
-    background: var(--main-branco);
+    background-color: #449DD1;
     clip-path: polygon(100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 0);
     cursor: pointer;
 }
@@ -133,6 +133,7 @@ main {
 /****************************** Estatísticas *****/
 .estatisticas {
     padding: 1em;
+    overflow: scroll;
 }
 
 .estatistica {
